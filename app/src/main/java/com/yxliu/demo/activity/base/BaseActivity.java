@@ -1,4 +1,4 @@
-package com.yxliu.demo1111.activity.base;
+package com.yxliu.demo.activity.base;
 
 import android.graphics.Color;
 import android.os.Build;
@@ -13,7 +13,7 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import com.readystatesoftware.systembartint.SystemBarTintManager;
-import com.yxliu.demo1111.R;
+import com.yxliu.demo.R;
 
 /**
  * 创建 yxliu
@@ -82,9 +82,9 @@ public abstract class BaseActivity extends AppCompatActivity {
     /**
      * 初始化tooBar
      *
-     * @param toolbar 状态栏
+     * @param toolbar         状态栏
      * @param homeAsUpEnabled home
-     * @param title 标题
+     * @param title           标题
      */
     public void initToolBar(Toolbar toolbar, boolean homeAsUpEnabled, String title) {
         toolbar.setTitle(title);
