@@ -4,7 +4,7 @@ android {
     compileSdkVersion 28
     defaultConfig {
         applicationId "com.yxliu.demo"
-        minSdkVersion 19
+        minSdkVersion 27
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
@@ -15,6 +15,11 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+//用到jdk1.8新特性
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 }
 
@@ -70,5 +75,13 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:3.7.0'
     //沉浸式状态栏
     implementation 'com.readystatesoftware.systembartint:systembartint:1.0.3'
+
+    implementation 'com.alibaba:fastjson:1.2.37'
+    implementation 'com.android.support:design:28.0.0'
+    implementation 'com.android.support:support-v4:28.0.0'
+    implementation 'com.google.zxing:core:3.3.0'
+    implementation('com.journeyapps:zxing-android-embedded:3.6.0') { transitive = false }
+
+//    implementation 'cn.yipianfengye.android:zxing-library:2.2'
 
 }
