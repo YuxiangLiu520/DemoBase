@@ -1,9 +1,15 @@
 package com.yxliu.demo.activity.base;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -15,6 +21,7 @@ import android.view.WindowManager;
 
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 import com.yxliu.demo.R;
+import com.yxliu.demo.activity.LoginActivity;
 import com.yxliu.demo.util.ActivityCollector;
 
 /**
@@ -26,19 +33,61 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     private static final String TAG = "BaseActivity---";
 
+    ForceOfflineReceive forceOfflineReceive;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.i(TAG,getClass().getSimpleName());//显示当前Activity
+        Log.i(TAG, getClass().getSimpleName());//显示当前Activity
         ActivityCollector.addActivity(this);//收集创建的Activity
 
         initSystemBarTint(false);
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        //注册强制下线的广播
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction("com.yxliu.demo.FORCE_OFFLINE");
+        forceOfflineReceive = new ForceOfflineReceive();
+        registerReceiver(forceOfflineReceive, intentFilter);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        // 取消注册的广播
+        if (forceOfflineReceive != null){
+            unregisterReceiver(forceOfflineReceive);
+            forceOfflineReceive = null;
+        }
+    }
+
+    @Override
     protected void onDestroy() {
         super.onDestroy();
         ActivityCollector.removeActivity(this);
+    }
+
+    /**
+     * 强制下线的广播接收器
+     */
+    private class ForceOfflineReceive extends BroadcastReceiver {
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(context);
+            builder.setTitle("Warning");
+            builder.setMessage("You are forced to be offline. Please try to login again.");
+            builder.setCancelable(false);
+            builder.setPositiveButton("OK", (dialog, which) -> {
+                ActivityCollector.finishAll();//销毁所有活动
+                Intent backIntent = new Intent(context,LoginActivity.class);
+                context.startActivity(backIntent);//重新启动LoginActivity
+            });
+            builder.show();
+        }
     }
 
     /**
