@@ -1,4 +1,4 @@
-package com.yxliu.demo.Utils;
+package com.yxliu.demo.util;
 
 import android.app.Activity;
 import android.content.DialogInterface;

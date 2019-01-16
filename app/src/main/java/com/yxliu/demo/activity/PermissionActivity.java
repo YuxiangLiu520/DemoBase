@@ -2,12 +2,11 @@ package com.yxliu.demo.activity;
 
 import android.Manifest;
 import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Toast;
 
 import com.yxliu.demo.R;
-import com.yxliu.demo.Utils.PermissionsUtils;
+import com.yxliu.demo.util.PermissionsUtils;
 
 public class PermissionActivity extends AppCompatActivity {
 
