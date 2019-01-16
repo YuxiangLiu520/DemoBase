@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.MenuItem;
 import android.view.View;
@@ -14,6 +15,7 @@ import android.view.WindowManager;
 
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 import com.yxliu.demo.R;
+import com.yxliu.demo.util.ActivityCollector;
 
 /**
  * 创建 yxliu
@@ -21,11 +23,22 @@ import com.yxliu.demo.R;
  * 描述 BaseActivity
  */
 public abstract class BaseActivity extends AppCompatActivity {
+
+    private static final String TAG = "BaseActivity---";
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.i(TAG,getClass().getSimpleName());//显示当前Activity
+        ActivityCollector.addActivity(this);//收集创建的Activity
 
         initSystemBarTint(false);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        ActivityCollector.removeActivity(this);
     }
 
     /**

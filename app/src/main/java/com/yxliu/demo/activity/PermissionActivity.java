@@ -1,14 +1,15 @@
 package com.yxliu.demo.activity;
 
 import android.Manifest;
-import android.support.annotation.NonNull;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.widget.Toast;
 
 import com.yxliu.demo.R;
+import com.yxliu.demo.activity.base.BaseActivity;
 import com.yxliu.demo.util.PermissionsUtils;
 
-public class PermissionActivity extends AppCompatActivity {
+public class PermissionActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
