@@ -1,9 +1,10 @@
-package com.yxliu.demo.activity.base;
+package com.yxliu.demo.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
 
 import com.yxliu.demo.R;
+import com.yxliu.demo.activity.base.BaseActivity;
 
 public class ForceActivity extends BaseActivity {
 

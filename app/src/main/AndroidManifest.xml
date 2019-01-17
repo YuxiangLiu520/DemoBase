@@ -15,6 +15,7 @@
     <uses-permission android:name="android.permission.WRITE_CALL_LOG" />
     <uses-permission android:name="android.permission.USE_SIP" />
     <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
     <!-- CALENDAR -->
     <uses-permission android:name="android.permission.READ_CALENDAR" />
     <uses-permission android:name="android.permission.WRITE_CALENDAR" />
@@ -58,18 +59,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".activity.MainActivity" />
         <activity android:name=".activity.WelcomeActivity" />
-        <activity android:name=".activity.PermissionActivity">
-            <intent-filter>
-
-                <!-- Remove warning. -->
-                <action android:name="android.intent.action.VIEW" />
-                <!--
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-                -->
-            </intent-filter>
-        </activity>
+        <activity android:name=".activity.PermissionActivity" />
         <activity android:name=".activity.BroadcastActivity">
 
             <!--
@@ -103,12 +93,32 @@
             android:name=".activity.LoginActivity"
             android:label="@string/title_activity_login">
             <intent-filter>
+
+                <!-- Remove warning. -->
+                <action android:name="android.intent.action.VIEW" />
+                <!--
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+                -->
+            </intent-filter>
+        </activity>
+        <activity android:name=".activity.ForceActivity" />
+        <activity android:name=".activity.ContactActivity">
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.base.ForceActivity"/>
+
+        <provider
+            android:name=".provider.DatabaseProvider"
+            android:authorities="com.yxliu.demo.provider"
+            android:enabled="true"
+            android:exported="true">
+
+        </provider>
     </application>
 
 </manifest>

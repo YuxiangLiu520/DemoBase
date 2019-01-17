@@ -37,7 +37,7 @@ public class PermissionsUtils {
         return permissionsUtils;
     }
 
-    public void chekPermissions(Activity context, String[] permissions, @NonNull IPermissionsResult permissionsResult) {
+    public void checkPermissions(Activity context, String[] permissions, @NonNull IPermissionsResult permissionsResult) {
         mPermissionsResult = permissionsResult;
 
         if (Build.VERSION.SDK_INT < 23) {//6.0才用动态权限
@@ -45,12 +45,12 @@ public class PermissionsUtils {
             return;
         }
 
-        //创建一个mPermissionList，逐个判断哪些权限未授予，未授予的权限存储到mPerrrmissionList中
+        //创建一个mPermissionList，逐个判断哪些权限未授予，未授予的权限存储到mPermissionList中
         List<String> mPermissionList = new ArrayList<>();
         //逐个判断你要的权限是否已经通过
-        for (int i = 0; i < permissions.length; i++) {
-            if (ContextCompat.checkSelfPermission(context, permissions[i]) != PackageManager.PERMISSION_GRANTED) {
-                mPermissionList.add(permissions[i]);//添加还未授予的权限
+        for (String permission : permissions) {
+            if (ContextCompat.checkSelfPermission(context, permission) != PackageManager.PERMISSION_GRANTED) {
+                mPermissionList.add(permission);//添加还未授予的权限
             }
         }
 
@@ -60,7 +60,6 @@ public class PermissionsUtils {
         } else {
             //说明权限都已经通过，可以做你想做的事情去
             permissionsResult.passPermisson();
-            return;
         }
 
 
@@ -75,8 +74,8 @@ public class PermissionsUtils {
                                            @NonNull int[] grantResults) {
         boolean hasPermissionDismiss = false;//有权限没有通过
         if (mRequestCode == requestCode) {
-            for (int i = 0; i < grantResults.length; i++) {
-                if (grantResults[i] == -1) {
+            for (int grantResult : grantResults) {
+                if (grantResult == -1) {
                     hasPermissionDismiss = true;
                 }
             }
@@ -106,25 +105,19 @@ public class PermissionsUtils {
         if (mPermissionDialog == null) {
             mPermissionDialog = new AlertDialog.Builder(context)
                     .setMessage("已禁用权限，请手动授予")
-                    .setPositiveButton("设置", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            cancelPermissionDialog();
+                    .setPositiveButton("设置", (dialog, which) -> {
+                        cancelPermissionDialog();
 
-                            Uri packageURI = Uri.parse("package:" + mPackName);
-                            Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, packageURI);
-                            context.startActivity(intent);
-                            context.finish();
-                        }
+                        Uri packageURI = Uri.parse("package:" + mPackName);
+                        Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, packageURI);
+                        context.startActivity(intent);
+                        context.finish();
                     })
-                    .setNegativeButton("取消", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            //关闭页面或者做其他操作
-                            cancelPermissionDialog();
-                            //mContext.finish();
-                            mPermissionsResult.forbitPermisson();
-                        }
+                    .setNegativeButton("取消", (dialog, which) -> {
+                        //关闭页面或者做其他操作
+                        cancelPermissionDialog();
+                        //mContext.finish();
+                        mPermissionsResult.forbitPermisson();
                     })
                     .create();
         }
