@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.SQLiteActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lite_pal_show"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"/>
+
+        <Button
+            android:id="@+id/btn_pal_create_database"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/create_database"/>
+        <Button
+            android:id="@+id/btn_pal_add_data"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/add_data"/>
+        <Button
+            android:id="@+id/btn_pal_update_data"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/update_data"/>
+        <Button
+            android:id="@+id/btn_pal_delete_data"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/delete_data"/>
+        <Button
+            android:id="@+id/btn_pal_query_data"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/query_data"/>
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

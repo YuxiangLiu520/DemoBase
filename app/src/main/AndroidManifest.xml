@@ -124,13 +124,23 @@
             tools:ignore="ExportedContentProvider" />
 
         <activity android:name=".activity.FilePersistenceActivity">
-            <!--<intent-filter>
+
+            <!--
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            -->
+        </activity>
+        <activity android:name=".activity.SQLiteActivity">
+          <!--  <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>-->
         </activity>
-        <activity android:name=".activity.SQLiteActivity">
+        <activity android:name=".activity.LitePalActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

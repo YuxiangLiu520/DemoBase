@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<litepal>
+    <dbname value="BookStore" />
+
+    <version value="5" />
+
+    <list>
+        <mapping class="com.yxliu.demo.model.Book"/>
+        <mapping class="com.yxliu.demo.model.Category"/>
+    </list>
+</litepal>
