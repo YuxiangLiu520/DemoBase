@@ -107,13 +107,11 @@
         <activity android:name=".activity.ForceActivity" />
         <activity android:name=".activity.ContactActivity">
 
-            <!--
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            -->
         </activity>
 
         <provider
@@ -141,11 +139,11 @@
             </intent-filter>-->
         </activity>
         <activity android:name=".activity.LitePalActivity">
-            <intent-filter>
+            <!--<intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            </intent-filter>-->
         </activity>
     </application>
 
