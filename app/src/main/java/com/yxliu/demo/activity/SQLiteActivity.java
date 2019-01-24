@@ -5,14 +5,14 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.Toast;
 
 import com.yxliu.demo.R;
+import com.yxliu.demo.activity.base.BaseActivity;
 import com.yxliu.demo.util.MyDatabaseHelper;
 
-public class SQLiteActivity extends AppCompatActivity {
+public class SQLiteActivity extends BaseActivity {
 
     private MyDatabaseHelper dbHelper;
 

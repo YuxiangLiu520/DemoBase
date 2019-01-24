@@ -32,6 +32,10 @@
     <string name="update_data">更新数据</string>
     <string name="delete_data">删除数据</string>
     <string name="query_data">查询数据</string>
+
     <!--LitePal-->
     <string name="lite_pal_show">LitePal</string>
+
+    <!-- Notification -->
+    <string name="send_notification">发送通知</string>
 </resources>
