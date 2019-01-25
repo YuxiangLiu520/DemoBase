@@ -38,4 +38,8 @@
 
     <!-- Notification -->
     <string name="send_notification">发送通知</string>
+
+    <!-- Camera -->
+    <string name="camera_take_photo">拍照</string>
+    <string name="camera_choose_photo">相册</string>
 </resources>
