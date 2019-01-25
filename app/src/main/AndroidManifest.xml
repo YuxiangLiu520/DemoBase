@@ -125,12 +125,13 @@
             android:exported="true"
             tools:ignore="ExportedContentProvider" />
         <provider
-            android:authorities="com.yxliu.demo.fileprovider"
             android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.yxliu.demo.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true">
-            <meta-data android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths"/>
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
         </provider>
 
         <activity android:name=".activity.FilePersistenceActivity">
@@ -164,13 +165,23 @@
             -->
         </activity>
         <activity android:name=".activity.NotificationActivity">
+
+            <!--
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            -->
+        </activity>
+        <activity android:name=".activity.CameraActivity">
             <!--<intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>-->
         </activity>
-        <activity android:name=".activity.CameraActivity">
+        <activity android:name=".activity.MediaActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

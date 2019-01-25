@@ -42,4 +42,9 @@
     <!-- Camera -->
     <string name="camera_take_photo">拍照</string>
     <string name="camera_choose_photo">相册</string>
+
+    <!-- Media -->
+    <string name="video_play">播放</string>
+    <string name="video_pause">暂停</string>
+    <string name="video_replay">重播</string>
 </resources>
