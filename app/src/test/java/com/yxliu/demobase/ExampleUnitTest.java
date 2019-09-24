@@ -1,4 +1,4 @@
-package com.yxliu.demo1111;
+package com.yxliu.demobase;
 
 import org.junit.Test;
 

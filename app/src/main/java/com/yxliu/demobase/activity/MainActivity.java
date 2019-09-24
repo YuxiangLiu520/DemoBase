@@ -1,9 +1,9 @@
-package com.yxliu.demo1111.activity;
+package com.yxliu.demobase.activity;
 
 import android.os.Bundle;
 
-import com.yxliu.demo1111.R;
-import com.yxliu.demo1111.activity.base.BaseActivity;
+import com.yxliu.demobase.R;
+import com.yxliu.demobase.activity.base.BaseActivity;
 
 public class MainActivity extends BaseActivity {
 

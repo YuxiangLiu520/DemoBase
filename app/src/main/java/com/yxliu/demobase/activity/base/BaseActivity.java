@@ -1,6 +1,6 @@
-package com.yxliu.demo1111.activity.base;
+package com.yxliu.demobase.activity.base;
 
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 
 /**
  *
